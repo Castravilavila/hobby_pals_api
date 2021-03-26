@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!--    <changeSet author="triss" id="insert-user">-->
+    <!--        <insert tableName="app_user">-->
+    <!--            <column name="username" value="Markus97x"></column>-->
+    <!--            <column name="password" value="MRK834MRK"></column>-->
+    <!--            <column name="email" value="markus.black@mail.com"></column>-->
+    <!--            <column name="name" value="Markus"></column>-->
+    <!--            <column name="surname" value="Black"></column>-->
+    <!--        </insert>-->
+    <!--        <insert tableName="app_user">-->
+    <!--            <column name="username" value="nightRoses"></column>-->
+    <!--            <column name="password" value="RRR67roses"></column>-->
+    <!--            <column name="email" value="mary.singleton@mail.com"></column>-->
+    <!--            <column name="name" value="Mary"></column>-->
+    <!--            <column name="surname" value="Singleton"></column>-->
+    <!--        </insert>-->
+    <!--        <insert tableName="app_user">-->
+    <!--            <column name="username" value="maxPayne"></column>-->
+    <!--            <column name="password" value="guns.123"></column>-->
+    <!--            <column name="email" value="max.payne@mail.com"></column>-->
+    <!--            <column name="name" value="Max"></column>-->
+    <!--            <column name="surname" value="Payne"></column>-->
+    <!--        </insert>-->
+    <!--    </changeSet>-->
+    <!--    <changeSet author="triss" id="insert-category">-->
+    <!--        <insert tableName="category">-->
+    <!--            <column name="category_name" value="Sport"></column>-->
+    <!--        </insert>-->
+    <!--        <insert tableName="category">-->
+    <!--            <column name="category_name" value="Games"></column>-->
+    <!--        </insert>-->
+    <!--        <insert tableName="category">-->
+    <!--            <column name="category_name" value="Music"></column>-->
+    <!--        </insert>-->
+    <!--        <insert tableName="category">-->
+    <!--            <column name="category_name" value="Arts"></column>-->
+    <!--        </insert>-->
+    <!--        <insert tableName="category">-->
+    <!--            <column name="category_name" value="Collecting"></column>-->
+    <!--        </insert>-->
+    <!--        <insert tableName="category">-->
+    <!--            <column name="category_name" value="Crafts"></column>-->
+    <!--        </insert>-->
+    <!--        <insert tableName="category">-->
+    <!--            <column name="category_name" value="Photography"></column>-->
+    <!--        </insert>-->
+    <!--        <insert tableName="category">-->
+    <!--            <column name="category_name" value="Writing"></column>-->
+    <!--        </insert>-->
+    <!--        <insert tableName="category">-->
+    <!--            <column name="category_name" value="Gardening"></column>-->
+    <!--        </insert>-->
+    <!--        <insert tableName="category">-->
+    <!--            <column name="category_name" value="Travel"></column>-->
+    <!--        </insert>-->
+    <!--        <insert tableName="category">-->
+    <!--            <column name="category_name" value="Vehicles"></column>-->
+    <!--        </insert>-->
+    <!--        <insert tableName="category">-->
+    <!--            <column name="category_name" value="Beauty"></column>-->
+    <!--        </insert>-->
+    <!--        <insert tableName="category">-->
+    <!--            <column name="category_name" value="Clothing"></column>-->
+    <!--        </insert>-->
+    <!--        <insert tableName="category">-->
+    <!--            <column name="category_name" value="Technology"></column>-->
+    <!--        </insert>-->
+    <!--        <insert tableName="category">-->
+    <!--            <column name="category_name" value="Culinary"></column>-->
+    <!--        </insert>-->
+    <!--        <insert tableName="category">-->
+    <!--            <column name="category_name" value="Movies"></column>-->
+    <!--        </insert>-->
+    <!--        <insert tableName="category">-->
+    <!--            <column name="category_name" value="Reading"></column>-->
+    <!--        </insert>-->
+    <!--        <insert tableName="category">-->
+    <!--            <column name="category_name" value="TvFilms"></column>-->
+    <!--        </insert>-->
+    <!--    </changeSet>-->
+    <!--    <changeSet author="triss" id="insert-group">-->
+    <!--        <insert tableName="app_group">-->
+    <!--            <column name="group_title" value="FIFA"></column>-->
+    <!--            <column name="group_description" value="Fifa fans club, we play every sat at 6 pm"></column>-->
+    <!--            <column name="category_id" value="1"></column>-->
+    <!--            <column name="group_access" value="0"></column>-->
+    <!--            <column name="icon" value="null"></column>-->
+    <!--        </insert>-->
+    <!--        <insert tableName="app_group">-->
+    <!--            <column name="group_title" value="basketMD"></column>-->
+    <!--            <column name="group_description" value="local basket teams are welcome to join our group"></column>-->
+    <!--            <column name="category_id" value="1"></column>-->
+    <!--            <column name="group_access" value="1"></column>-->
+    <!--            <column name="icon" value="null"></column>-->
+    <!--        </insert>-->
+    <!--        <insert tableName="app_group">-->
+    <!--            <column name="group_title" value="Skyrim"></column>-->
+    <!--            <column name="group_description" value="Talks about game progress and cool people"></column>-->
+    <!--            <column name="category_id" value="2"></column>-->
+    <!--            <column name="group_access" value="1"></column>-->
+    <!--            <column name="icon" value="null"></column>-->
+    <!--        </insert>-->
+    <!--        <insert tableName="app_group">-->
+    <!--            <column name="group_title" value="musicMaker"></column>-->
+    <!--            <column name="group_description" value="Share your experience in creating the most wonderful music"></column>-->
+    <!--            <column name="category_id" value="3"></column>-->
+    <!--            <column name="group_access" value="0"></column>-->
+    <!--            <column name="icon" value="null"></column>-->
+    <!--        </insert>-->
+    <!--    </changeSet>-->
+    <!--    <changeSet author="triss" id="insert-post">-->
+    <!--        <insert tableName="post">-->
+    <!--            <column name="post_title" value="Loot elves!!!"></column>-->
+    <!--            <column name="post_image" value="null"></column>-->
+    <!--            <column name="post_text" value="New event available 24hrs, lets go guys!!!"></column>-->
+    <!--            <column name="date" value="10-03-20"></column>-->
+    <!--            <column name="group_id" value="3"></column>-->
+    <!--            <column name="user_id" value="3"></column>-->
+    <!--        </insert>-->
+    <!--        <insert tableName="post">-->
+    <!--            <column name="post_title" value="Search Player"></column>-->
+    <!--            <column name="post_image" value="null"></column>-->
+    <!--            <column name="post_text" value="Need one more player for tonights game"></column>-->
+    <!--            <column name="date" value="11-03-20"></column>-->
+    <!--            <column name="group_id" value="1"></column>-->
+    <!--            <column name="user_id" value="3"></column>-->
+    <!--        </insert>-->
+    <!--        <insert tableName="post">-->
+    <!--            <column name="post_title" value="Looking for a team"></column>-->
+    <!--            <column name="post_image" value="null"></column>-->
+    <!--            <column name="post_text" value="Im newbee who could accept me in?"></column>-->
+    <!--            <column name="date" value="11-03-20"></column>-->
+    <!--            <column name="group_id" value="3"></column>-->
+    <!--            <column name="user_id" value="3"></column>-->
+    <!--        </insert>-->
+    <!--        <insert tableName="post">-->
+    <!--            <column name="post_title" value="Looking for a team"></column>-->
+    <!--            <column name="post_image" value="null"></column>-->
+    <!--            <column name="post_text" value="Looking for pro team for championship"></column>-->
+    <!--            <column name="date" value="11-03-20"></column>-->
+    <!--            <column name="group_id" value="2"></column>-->
+    <!--            <column name="user_id" value="2"></column>-->
+    <!--        </insert>-->
+    <!--    </changeSet>-->
+    <!--    <changeSet author="triss" id="insert-comment">-->
+    <!--        <insert tableName="comment">-->
+    <!--            <column name="text" value="I cant play tonight sorry guys."></column>-->
+    <!--            <column name="date" value="11-02-2020"></column>-->
+    <!--            <column name="user_id" value="1"></column>-->
+    <!--            <column name="post_id" value="1"></column>-->
+    <!--        </insert>-->
+    <!--        <insert tableName="comment">-->
+    <!--            <column name="text" value="Plans changed"></column>-->
+    <!--            <column name="date" value="11-02-2020"></column>-->
+    <!--            <column name="user_id" value="1"></column>-->
+    <!--            <column name="post_id" value="1"></column>-->
+    <!--        </insert>-->
+    <!--        <insert tableName="comment">-->
+    <!--            <column name="text" value="Cool, I like that"></column>-->
+    <!--            <column name="date" value="11-02-2020"></column>-->
+    <!--            <column name="user_id" value="2"></column>-->
+    <!--            <column name="post_id" value="3"></column>-->
+    <!--        </insert>-->
+    <!--    </changeSet>-->
+    <changeSet author="triss" id="insert-roles">
+        <insert tableName="role">
+            <column name="name" value="ROLE_ADMIN"></column>
+        </insert>
+        <insert tableName="role">
+            <column name="name" value="ROLE_USER"></column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

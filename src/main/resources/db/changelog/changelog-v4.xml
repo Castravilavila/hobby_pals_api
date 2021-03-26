@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet  author="Liviu Moisei"  id="createTable-2">
+        <createTable tableName="join_requests">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="user_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="group_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="message" type="varchar(255)"/>
+        </createTable>
+
+        <addForeignKeyConstraint constraintName="joinRequests_to_user"
+                                 baseTableName="join_requests"
+                                 baseColumnNames="user_id"
+                                 referencedTableName="app_user"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint constraintName="joinRequests_to_group"
+                                 baseTableName="join_requests"
+                                 baseColumnNames="group_id"
+                                 referencedTableName="app_group"
+                                 referencedColumnNames="group_id"/>
+    </changeSet>
+</databaseChangeLog>

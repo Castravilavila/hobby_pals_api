@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="1" author="alexandru_castravet">
+        <createTable tableName="category">
+            <column name="category_id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="category_name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="image_url" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="role" >
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="app_user">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="username" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="surname" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="image_url" type="varchar(255)"/>
+        </createTable>
+
+        <createTable tableName="comment">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="text" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date" type="date"/>
+            <column name="user_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="post_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="post">
+            <column name="post_id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="post_title" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="image_url" type="varchar(255)"/>
+            <column name="post_text" type="varchar(255)"/>
+            <column name="date" type="date"/>
+            <column name="group_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="app_group">
+            <column name="group_id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="group_title" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="group_description" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="category_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="group_access" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="image_url" type="varchar(255)"/>
+        </createTable>
+
+        <createTable tableName="user_role">
+            <column name="user_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="group_user">
+            <column name="group_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="category_post">
+            <column name="category_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="post_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="category_user">
+            <column name="user_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="category_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="users">
+            <column name="username" type="varchar(255)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="password" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="enabled" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="authorities">
+            <column name="username" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="authority" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="users_groups">
+            <column name="user_group_id" type="bigint" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="group_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_group_role" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="enrolmentDate" type="date">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createIndex indexName="ix_auth_username" tableName="authorities">
+            <column name="username"/>
+            <column name="authority"/>
+        </createIndex>
+
+        <addForeignKeyConstraint constraintName="fk_authorities_users"
+                                 baseTableName="authorities"
+                                 baseColumnNames="username"
+                                 referencedTableName="users"
+                                 referencedColumnNames="username"/>
+
+        <addForeignKeyConstraint constraintName="comment_to_user"
+                                 baseTableName="comment"
+                                 baseColumnNames="user_id"
+                                 referencedTableName="app_user"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint constraintName="comment_to_post"
+                                 baseTableName="comment"
+                                 baseColumnNames="post_id"
+                                 referencedTableName="post"
+                                 referencedColumnNames="post_id"/>
+
+        <addForeignKeyConstraint constraintName="post_to_group"
+                                 baseTableName="post"
+                                 baseColumnNames="group_id"
+                                 referencedTableName="app_group"
+                                 referencedColumnNames="group_id"/>
+
+        <addForeignKeyConstraint constraintName="post_to_user"
+                                 baseTableName="post"
+                                 baseColumnNames="user_id"
+                                 referencedTableName="app_user"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint constraintName="group_to_category"
+                                 baseTableName="app_group"
+                                 baseColumnNames="category_id"
+                                 referencedTableName="category"
+                                 referencedColumnNames="category_id"/>
+
+        <addForeignKeyConstraint constraintName="user_role_to_user"
+                                 baseTableName="user_role"
+                                 baseColumnNames="user_id"
+                                 referencedTableName="app_user"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint constraintName="user_role_to_role"
+                                 baseTableName="user_role"
+                                 baseColumnNames="role_id"
+                                 referencedTableName="role"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint constraintName="group_user_to_user"
+                                 baseTableName="group_user"
+                                 baseColumnNames="user_id"
+                                 referencedTableName="app_user"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint constraintName="group_user_to_group"
+                                 baseTableName="group_user"
+                                 baseColumnNames="group_id"
+                                 referencedTableName="app_group"
+                                 referencedColumnNames="group_id"/>
+
+        <addForeignKeyConstraint constraintName="category_post_to_category"
+                                 baseTableName="category_post"
+                                 baseColumnNames="category_id"
+                                 referencedTableName="category"
+                                 referencedColumnNames="category_id"/>
+
+        <addForeignKeyConstraint constraintName="category_post_to_post"
+                                 baseTableName="category_post"
+                                 baseColumnNames="post_id"
+                                 referencedTableName="post"
+                                 referencedColumnNames="post_id"/>
+
+        <addForeignKeyConstraint constraintName="users_groups_to_user"
+                                 baseTableName="users_groups"
+                                 baseColumnNames="user_id"
+                                 referencedTableName="app_user"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint constraintName="users_groups_to_group"
+                                 baseTableName="users_groups"
+                                 baseColumnNames="group_id"
+                                 referencedTableName="app_group"
+                                 referencedColumnNames="group_id"/>
+    </changeSet>
+
+    <changeSet  author="alexandru-casstravet"  id="2">
+        <createSequence  cacheSize="371717"
+                         catalogName="public"
+                         cycle="true"
+                         dataType="bigint"
+                         incrementBy="1"
+                         maxValue="10000"
+                         minValue="5"
+                         schemaName="public"
+                         sequenceName="hibernate_sequence"
+                         startValue="5"/>
+    </changeSet>
+
+</databaseChangeLog>
